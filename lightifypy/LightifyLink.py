@@ -223,13 +223,13 @@ class LightifyLink:
         :param command: Command which was sent. See Command.Command class to get more info
         :return: integer of error code
         """
-        print(binascii.hexlify(buffer))
+        print((binascii.hexlify(buffer)))
         (status, command_id) = struct.unpack('<BB', buffer[:2])
         if status != 0x01 and status != 0x03:
             sent = packet.upper()
             received = buffer.upper()
-            print("Packet content, sent: {}, received: {}", sent, received)
-            print("Status code: 0x{}, command: {}".format(status, command.name))
+            print(("Packet content, sent: {}, received: {}", sent, received))
+            print(("Status code: 0x{}, command: {}".format(status, command.name)))
         return struct.unpack('<B', buffer[6:7])
 
     @staticmethod
